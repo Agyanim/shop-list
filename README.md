@@ -1,3 +1,3 @@
 # shop-list
 Techathon
-agyanim-shop-list.netlify.app
+https://agyanim-shop-list.netlify.app/
