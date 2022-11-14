@@ -30,13 +30,13 @@ const Shoplist = () => {
   return (
     <div className="bg-gray-500 h-screen flex flex-col items-center">
       <div
-        className="w-[30vw] h-[80vh] bg-white m-auto rounded-lg flex
+        className="w-[80vw] h-[80vh] bg-white m-auto rounded-lg flex
       flex-col items-center
       "
       >
         <div className=" my-10">
           <h1
-            className=" text-lg font-bold uppercase
+            className=" text-lg font-bold uppercase sm:text-2xl
           "
           >
             Shop List
@@ -52,7 +52,7 @@ const Shoplist = () => {
               name="list"
               value={item}
               onChange={changeHandler}
-              className="bg-gray-100 w-[20rem] py-2 pl-4
+              className="bg-gray-100 w-[14rem] py-2 pl-4 sm:w-[26rem]
            hover:border-red-300 hover:border-solid hover:border-[1px]
           "
             />
@@ -62,7 +62,7 @@ const Shoplist = () => {
             >
               <button
                 type="submit"
-                className=" bg-gray-700 px-10 py-2 rounded-xl text-white font-bold
+                className=" bg-gray-700 px-10 py-2 rounded-xl text-white font-bold sm:px-16 sm:py-3
             hover:bg-opacity-60
             "
               >
@@ -71,7 +71,7 @@ const Shoplist = () => {
             </div>
           </div>
         </form>
-        <div>
+        <div className="mt-4">
           <ul className="list-decimal">{renderShopList}</ul>
         </div>
       </div>
