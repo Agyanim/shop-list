@@ -45,6 +45,7 @@ const Shoplist = () => {
         <ul
           className="flex justify-between items-center w-[60vw]
           sm:w-[40vw]
+          lg:w-[20vw]
           "
           key={value.id}
         >
@@ -75,6 +76,7 @@ const Shoplist = () => {
         className="w-[80vw]  h-[80vh] bg-white m-auto rounded-lg flex
       flex-col items-center
       sm:w-[50vw]
+      lg:w-[30vw]
       "
       >
         <div className=" my-5">
@@ -90,7 +92,7 @@ const Shoplist = () => {
             className="flex flex-col items-center
             "
           >
-            <div className="flex flex-col items-center gap-2 [&_input]:w-[60vw] [&_input]:sm:w-[40vw]
+            <div className="flex flex-col items-center gap-2 [&_input]:w-[60vw] sm:[&_input]:w-[40vw] lg:[&_input]:w-[20vw]
             
             ">
               <input
@@ -120,7 +122,7 @@ const Shoplist = () => {
             >
               <button
                 type="submit"
-                className=" bg-gray-700 px-10 py-2 rounded-xl text-white font-bold sm:px-16 sm:py-3
+                className=" bg-gray-700 px-10 py-2 rounded-xl text-white font-bold sm:px-12 sm:py-2
             hover:bg-opacity-60
             "
               >
