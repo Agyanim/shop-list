@@ -3,34 +3,74 @@ import { useState } from "react";
 import { render } from "react-dom";
 
 const Shoplist = () => {
-  const [item, setItem] = useState("");
+  const [item, setItem] = useState({
+    itemName: "",
+    price: 0,
+  });
   const [itemList, setItemList] = useState([]);
 
   const submitHandler = (e) => {
     e.preventDefault();
     setItemList((prev) => [
       ...prev,
+
       {
         id: new Date().getMilliseconds(),
-        addToList: item,
+        itemName: item.itemName,
+        price: item.price,
       },
     ]);
-    setItem("");
+    setItem({
+      itemName: "",
+      price: 0,
+    });
   };
-  console.log(itemList);
 
-  const changeHandler = (e) => {
-    setItem(e.target.value);
+  const changeHandlerItem = (e) => {
+    setItem({ ...item, itemName: e.target.value });
+  };
+
+  const changeHandlerPrice = (e) => {
+    setItem({ ...item, price: e.target.value });
+  };
+
+  const deleteHandler = (id) => {
+    const newItemList = itemList.filter((item) => item.id !== id);
+    setItemList(newItemList);
   };
 
   const renderShopList = itemList.map((value) => {
-    return <li>{value.addToList}</li>;
+    return (
+      <>
+        <ul
+          className="flex justify-between items-center w-[50vw]"
+          key={value.id}
+        >
+          <li>
+            <span className="mr-2">
+              <input type="checkbox" name="" id="" />
+            </span>
+            {value.itemName}
+          </li>
+          <li>
+            {value.price}{" "}
+            <span
+              onClick={() => deleteHandler(value.id)}
+              className="text-red-600 border-red-600 border-[1px] px-[0] py-0 cursor-pointer ml-4 "
+            >
+              x
+            </span>
+          </li>
+        </ul>
+        <hr className="w-full h-[2px] bg-gray-400 my-2 " />
+      </>
+    );
   });
 
   return (
-    <div className="bg-gray-500 h-screen flex flex-col items-center">
+    <section className="bg-gray-500 h-screen flex flex-col items-center">
       <div
-        className="w-[80vw] h-[80vh] bg-white m-auto rounded-lg flex
+        className="w-[80vw]  h-[80vh] bg-white m-auto rounded-lg flex
       flex-col items-center
       "
       >
@@ -47,15 +87,28 @@ const Shoplist = () => {
             className="flex flex-col items-center
             "
           >
-            <input
-              type="text"
-              name="list"
-              value={item}
-              onChange={changeHandler}
-              className="bg-gray-100 w-[14rem] py-2 pl-4 sm:w-[26rem]
+            <div className="flex flex-col items-center gap-2">
+              <input
+                type="text"
+                name="list"
+                value={item.itemName}
+                placeholder="Enter item"
+                onChange={changeHandlerItem}
+                className="bg-gray-100 w-[50vw]  py-2 pl-4 sm:w-[20rem]
            hover:border-red-300 hover:border-solid hover:border-[1px]
           "
-            />
+              />
+              <input
+                type="text"
+                name="price"
+                value={item.price}
+                placeholder="price"
+                onChange={changeHandlerPrice}
+                className="bg-gray-100 w-[50vw] py-2 pl-4 sm:w-[20rem]
+            hover:border-red-300 hover:border-solid hover:border-[1px]
+            "
+              />
+            </div>
             <div
               className="mt-4
           "
@@ -72,10 +125,10 @@ const Shoplist = () => {
           </div>
         </form>
         <div className="mt-4">
-          <ul className="list-decimal">{renderShopList}</ul>
+          <div className="">{renderShopList}</div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
