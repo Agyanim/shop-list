@@ -43,7 +43,9 @@ const Shoplist = () => {
     return (
       <>
         <ul
-          className="flex justify-between items-center w-[50vw]"
+          className="flex justify-between items-center w-[60vw]
+          sm:w-[40vw]
+          "
           key={value.id}
         >
           <li>
@@ -72,9 +74,10 @@ const Shoplist = () => {
       <div
         className="w-[80vw]  h-[80vh] bg-white m-auto rounded-lg flex
       flex-col items-center
+      sm:w-[50vw]
       "
       >
-        <div className=" my-10">
+        <div className=" my-5">
           <h1
             className=" text-lg font-bold uppercase sm:text-2xl
           "
@@ -87,15 +90,17 @@ const Shoplist = () => {
             className="flex flex-col items-center
             "
           >
-            <div className="flex flex-col items-center gap-2">
+            <div className="flex flex-col items-center gap-2 [&_input]:w-[60vw] [&_input]:sm:w-[40vw]
+            
+            ">
               <input
                 type="text"
                 name="list"
                 value={item.itemName}
                 placeholder="Enter item"
                 onChange={changeHandlerItem}
-                className="bg-gray-100 w-[50vw]  py-2 pl-4 sm:w-[20rem]
-           hover:border-red-300 hover:border-solid hover:border-[1px]
+                className="bg-gray-100   py-2 pl-4 
+           hover:border-red-300 hover:border-solid hover:border-[1px] 
           "
               />
               <input
@@ -104,7 +109,7 @@ const Shoplist = () => {
                 value={item.price}
                 placeholder="price"
                 onChange={changeHandlerPrice}
-                className="bg-gray-100 w-[50vw] py-2 pl-4 sm:w-[20rem]
+                className="bg-gray-100 py-2 pl-4 
             hover:border-red-300 hover:border-solid hover:border-[1px]
             "
               />
